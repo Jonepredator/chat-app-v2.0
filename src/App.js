@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
    BrowserRouter as Router,
    Switch,
@@ -10,11 +10,14 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
 import Login from './components/Login';
+import LoadingScreen from './components/LoadingScreen';
+
 import { auth } from './firebase';
 import { onAuthStateChanged } from '@firebase/auth';
 
 function App() {
    const [user, setUser] = useState(null);
+   const [loading, setLoading] = useState(false);
 
    onAuthStateChanged(auth, (loggedUser) => {
       if (loggedUser) {
@@ -26,11 +29,25 @@ function App() {
       }
    });
 
+   //test: loading function
+   useEffect(() => {
+      setLoading(true);
+      const timing = setTimeout(() => {
+         setLoading(false);
+      }, 3000);
+      return () => clearTimeout(timing);
+   }, []);
+
+
+
    return (
       <div className="app">
          <Router>
-            {user ? (
+            {!user ? (
+               <Login />
+            ) : (
                <>
+                  {loading && <LoadingScreen />}
                   <Header />
                   <AppBody>
                      <Sidebar />
@@ -41,8 +58,6 @@ function App() {
                      </Switch>
                   </AppBody>
                </>
-            ) : (
-               <Login />
             )}
          </Router>
       </div>

@@ -16,15 +16,17 @@ function Header() {
          <HeaderLeft>
             <HeaderAvatar
                src={loggedUser.photoURL}
-            // TODO: add onClick
-            // src={user?.photUrl}
+            // TODO: add onClick to get larger image
             />
-            <AccessTimeIcon />
+            <AccessTimeIcon
+            //TODO: add a clock on click or hover
+            />
          </HeaderLeft>
 
          <HeaderSearch>
             <SearchIcon />
             <input
+               //TODO: add search for specifics in messages
                placeholder='Search...'
                type="text" />
          </HeaderSearch>
@@ -64,6 +66,7 @@ const HeaderLeft = styled.div`
 `;
 
 const HeaderAvatar = styled(Avatar)`
+   /* border: 2px solid #FCD100; */
    cursor: pointer;
 
    :hover {
@@ -78,7 +81,8 @@ const HeaderSearch = styled.div`
    flex: 0.4;
    opacity: 1;
    border-radius: 6px;
-   background-color: #421f44;
+   /* background-color: #421f44; */
+   background-color: #4f2330;
    text-align: center;
    color: gray;
    border: 1px gray solid;
@@ -98,17 +102,26 @@ const HeaderRight = styled.div`
    flex: 0.3;
    display: flex;
    justify-content: flex-end;
+   /* color: #FCD100; */
+   color: #FFF;
 
    >  .MuiSvgIcon-root {
+      height: 32px;
+      width: 32px;
       margin-left: auto;
       margin-right: 20px;
       padding: 2px;
-      border: 2px solid white;
-      border-radius: 50px;
+      /* border: 2px solid #FCD100; */
+      border: 2px solid #FFF;
+      border-radius: 20px;
       cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 1px 2px rgba(0, 0, 0, 0.9);
+
+      transition: border-radius .2s;
 
       :hover {
-         transform: scale(105%)
+         /* transform: scale(105%); */
+         border-radius: 6px;
       }
    }
 `;

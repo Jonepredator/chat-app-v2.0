@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import CreateIcon from '@mui/icons-material/Create';
+// import CreateIcon from '@mui/icons-material/Create';
 // import InsertCommentIcon from '@mui/icons-material/InsertComment';
 // import InboxIcon from '@mui/icons-material/Inbox';
 // import DraftsIcon from '@mui/icons-material/Drafts';
@@ -80,7 +80,7 @@ const SidebarContainer = styled.div`
    margin-top: 60px;
 
    >  hr {
-      margin-top: 10px;
+      margin-top: 6px;
       margin-bottom: 10px;
       border: 1px solid #49274b;
    }
